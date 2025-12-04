@@ -1,0 +1,28 @@
+{
+  "name": "jurassic-park-theme",
+  "displayName": "Jurassic Park Theme",
+  "description": "A VS Code color theme inspired by the lush jungles, amber gold, and retro tech terminals of the 1993 classic, Jurassic Park. Optimized for readability across many languages.",
+  "version": "1.0.0",
+  "publisher": "andrearagalzi",
+  "author": "Andrea Ragalzi",
+  "repository": {
+    "type": "git",
+    "url": "INSERISCI L'URL DEL TUO REPO GIT QUI"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Jurassic Park Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Jurassic Park Theme-color-theme.json"
+      }
+    ]
+  }
+}

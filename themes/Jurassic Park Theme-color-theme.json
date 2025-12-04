@@ -1,0 +1,131 @@
+{
+  "name": "Jurassic Park Theme",
+
+  // ===============================================
+  // 1. WORKBENCH COLORS (VS Code UI: bars, panels)
+  // ===============================================
+  "colors": {
+    // --- UI BASE: The Nocturnal Jungle ---
+    "editor.background": "#121612",
+    "editor.foreground": "#dcdcdc",
+    "sideBar.background": "#1b261b",
+    "sideBar.foreground": "#a8c0a8",
+    "activityBar.background": "#0f130f",
+
+    // --- STATUS BAR: The control computer (Park Vehicle Green) ---
+    "statusBar.background": "#2C4B42",
+    "statusBar.foreground": "#ffffff",
+    "statusBarItem.remoteBackground": "#BA9A5D",
+
+    // --- EDITOR UI ---
+    "editorCursor.foreground": "#D4AF37", // Amber Cursor
+    "editorLineNumber.foreground": "#425e42",
+    "editorLineNumber.activeForeground": "#D4AF37",
+    "editor.selectionBackground": "#3E573E50", // Semi-transparent selection
+    "tab.activeBorder": "#D4AF37",
+    "titleBar.activeBackground": "#1b261b"
+  },
+
+  // ===============================================
+  // 2. SYNTAX HIGHLIGHTING (Code Coloring)
+  // ===============================================
+  "tokenColors": [
+    // --- Comments: Moss and Earth (Generic) ---
+    {
+      "scope": ["comment", "punctuation.definition.comment"],
+      "settings": { "fontStyle": "italic", "foreground": "#5c6e5c" }
+    },
+
+    // --- Keywords & Storage: The Amber of the Logo (Generic) ---
+    // (e.g. function, class, def, if, import, export, var, let, const)
+    {
+      "scope": [
+        "keyword",
+        "storage.type",
+        "storage.modifier",
+        "variable.language.self",
+        "variable.language.this"
+      ],
+      "settings": { "foreground": "#D4AF37", "fontStyle": "bold" }
+    },
+
+    // --- Strings: Lush Vegetation (Green) ---
+    {
+      "scope": ["string", "punctuation.definition.string", "markup.inline.raw"],
+      "settings": { "foreground": "#87b358" }
+    },
+
+    // --- Classes, Types and Entities: Danger/Important (T-Rex Red/Dark Red) ---
+    // (e.g. class MyClass, interface, type, entity.name.tag in HTML)
+    {
+      "scope": [
+        "entity.name.type",
+        "entity.name.class",
+        "support.class",
+        "entity.other.inherited-class",
+        "meta.class",
+        "entity.name.tag"
+      ],
+      "settings": { "foreground": "#e05f5f", "fontStyle": "bold" }
+    },
+
+    // --- Functions: Ancient Gold/Bronze (Calls and Definitions) ---
+    {
+      "scope": [
+        "entity.name.function",
+        "meta.function-call",
+        "support.function"
+      ],
+      "settings": { "foreground": "#E0C97E" }
+    },
+
+    // --- Variables & Parameters: Gray/Technological Blue ---
+    // (Local variables, function parameters)
+    {
+      "scope": [
+        "variable",
+        "variable.parameter",
+        "variable.other.readwrite",
+        "meta.definition.variable"
+      ],
+      "settings": { "foreground": "#c4d6c4" }
+    },
+
+    // --- Numbers and Constants: Amber/Orange ---
+    // (e.g. 123, true, false, null)
+    {
+      "scope": [
+        "constant.numeric",
+        "constant.language",
+        "support.constant",
+        "constant.character",
+        "constant.escape"
+      ],
+      "settings": { "foreground": "#ff8c42" }
+    },
+
+    // --- Attributes/Properties/Decorators: Warm Orange ---
+    // (e.g. HTML attributes, JSON keys, Decorators)
+    {
+      "scope": [
+        "entity.other.attribute-name",
+        "support.type.property-name",
+        "meta.decorator",
+        "punctuation.decorator"
+      ],
+      "settings": { "foreground": "#ff8c42" }
+    },
+
+    // --- Operators and Punctuation: Faded Green ---
+    {
+      "scope": [
+        "keyword.operator",
+        "punctuation.separator",
+        "punctuation.accessor",
+        "punctuation.terminator",
+        "punctuation.definition.variable"
+      ],
+      "settings": { "foreground": "#a8c0a8" }
+    }
+  ]
+}
