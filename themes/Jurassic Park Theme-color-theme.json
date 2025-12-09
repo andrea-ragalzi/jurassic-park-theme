@@ -1,6 +1,8 @@
 {
   "name": "Jurassic Park Theme",
 
+  "semanticHighlighting": true,
+
   // ===============================================
   // 1. WORKBENCH COLORS (VS Code UI: bars, panels)
   // ===============================================
@@ -127,5 +129,11 @@
       ],
       "settings": { "foreground": "#a8c0a8" }
     }
-  ]
+  ],
+
+  "semanticTokenColors": {
+    "variable": "#c4d6c4",
+    "variable.readonly": "#9bb6b0",
+  }
+
 }
