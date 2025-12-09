@@ -132,8 +132,8 @@
   ],
 
   "semanticTokenColors": {
-    "variable": "#c4d6c4",
-    "variable.readonly": "#9bb6b0",
+    "variable:python": "#c4d6c4",
+    "variable.readonly:python": "#9bb6b0",
   }
 
 }
