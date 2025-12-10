@@ -1,29 +1,23 @@
 {
   "name": "Jurassic Park Theme",
-
   "semanticHighlighting": true,
 
   // ===============================================
   // 1. WORKBENCH COLORS (VS Code UI: bars, panels)
   // ===============================================
   "colors": {
-    // --- UI BASE: The Nocturnal Jungle ---
     "editor.background": "#121612",
     "editor.foreground": "#dcdcdc",
     "sideBar.background": "#1b261b",
     "sideBar.foreground": "#a8c0a8",
     "activityBar.background": "#0f130f",
-
-    // --- STATUS BAR: The control computer (Park Vehicle Green) ---
     "statusBar.background": "#2C4B42",
     "statusBar.foreground": "#ffffff",
-    "statusBarItem.remoteBackground": "#BA9A5D",
-
-    // --- EDITOR UI ---
-    "editorCursor.foreground": "#D4AF37", // Amber Cursor
+    "statusBarItem.remoteBackground": "#D4AF37",
+    "editorCursor.foreground": "#D4AF37",
     "editorLineNumber.foreground": "#425e42",
     "editorLineNumber.activeForeground": "#D4AF37",
-    "editor.selectionBackground": "#3E573E50", // Semi-transparent selection
+    "editor.selectionBackground": "#3E573E80",
     "tab.activeBorder": "#D4AF37",
     "titleBar.activeBackground": "#1b261b"
   },
@@ -35,18 +29,20 @@
     // --- Comments: Moss and Earth (Generic) ---
     {
       "scope": ["comment", "punctuation.definition.comment"],
-      "settings": { "fontStyle": "italic", "foreground": "#5c6e5c" }
+      "settings": { "fontStyle": "italic", "foreground": "#627252" }
     },
 
     // --- Keywords & Storage: The Amber of the Logo (Generic) ---
-    // (e.g. function, class, def, if, import, export, var, let, const)
     {
       "scope": [
         "keyword",
         "storage.type",
         "storage.modifier",
         "variable.language.self",
-        "variable.language.this"
+        "variable.language.this",
+        // EXPLICIT ADDITION to force 'new' and 'super'
+        "keyword.operator.new",
+        "variable.language.super"
       ],
       "settings": { "foreground": "#D4AF37", "fontStyle": "bold" }
     },
@@ -54,21 +50,48 @@
     // --- Strings: Lush Vegetation (Green) ---
     {
       "scope": ["string", "punctuation.definition.string", "markup.inline.raw"],
-      "settings": { "foreground": "#87b358" }
+      "settings": { "foreground": "#87b358", "fontStyle": "italic" }
     },
 
     // --- Classes, Types and Entities: Danger/Important (T-Rex Red/Dark Red) ---
-    // (e.g. class MyClass, interface, type, entity.name.tag in HTML)
     {
       "scope": [
+        // Types and Definitions
         "entity.name.type",
         "entity.name.class",
         "support.class",
         "entity.other.inherited-class",
         "meta.class",
-        "entity.name.tag"
+        "support.type.primitive",
+        "storage.type.built-in",
+        "entity.name.struct",
+        "storage.type.struct",
+        "entity.name.type.typedef",
+        "storage.type.typedef",
+        "support.type",
+        "entity.name.type.alias",
+
+        // HTML/XML
+        "entity.name.tag",
+        "punctuation.definition.tag",
+        "punctuation.definition.tag.begin",
+        "punctuation.definition.tag.end",
+
+        // OBJECT KEYS/DICTIONARIES/YAML (Non-String)
+        "support.type.property-name",
+        "entity.name.tag.yaml",
+        "support.type.json.property-name"
       ],
-      "settings": { "foreground": "#e05f5f", "fontStyle": "bold" }
+      "settings": { "foreground": "#ec1b31", "fontStyle": "bold" }
+    },
+
+    // --- FIX TSX/JSX: Neutralizing JSX/TSX Content ---
+    {
+      "scope": ["meta.jsx.children", "meta.jsx.children.tsx"],
+      "settings": {
+        "foreground": "#dcdcdc",
+        "fontStyle": ""
+      }
     },
 
     // --- Functions: Ancient Gold/Bronze (Calls and Definitions) ---
@@ -81,20 +104,21 @@
       "settings": { "foreground": "#E0C97E" }
     },
 
-    // --- Variables & Parameters: Gray/Technological Blue ---
-    // (Local variables, function parameters)
+    // --- Variables & Parameters: Faded Green (Fallback) ---
     {
       "scope": [
         "variable",
         "variable.parameter",
         "variable.other.readwrite",
-        "meta.definition.variable"
+        "meta.definition.variable",
+        "variable.other.local",
+        "variable.other",
+        "entity.name.variable.parameter"
       ],
-      "settings": { "foreground": "#c4d6c4" }
+      "settings": { "foreground": "#a8c0a8" }
     },
 
-    // --- Numbers and Constants: Amber/Orange ---
-    // (e.g. 123, true, false, null)
+    // --- Numbers and Constants: Iconic Amber ---
     {
       "scope": [
         "constant.numeric",
@@ -106,16 +130,41 @@
       "settings": { "foreground": "#ff8c42" }
     },
 
-    // --- Attributes/Properties/Decorators: Warm Orange ---
-    // (e.g. HTML attributes, JSON keys, Decorators)
+    // --- Attributes/Properties/Decorators/Annotations: Muted Cyan (#5F8E80) ---
+    // We need two separate blocks here to isolate HTML
     {
       "scope": [
-        "entity.other.attribute-name",
-        "support.type.property-name",
         "meta.decorator",
-        "punctuation.decorator"
+        "punctuation.decorator",
+        "entity.name.function.decorator",
+        "meta.decorator entity.name.function",
+        "entity.name.annotation",
+        "meta.annotation",
+        "punctuation.definition.annotation",
+        "storage.type.annotation",
+        "storage.modifier.annotation",
+        "support.type.attribute"
+      ],
+      "settings": { "foreground": "#5F8E80" }
+    },
+
+    // --- FIX HTML ATTRIBUTE (Forces Warm Orange) ---
+    {
+      "scope": [
+        "entity.other.attribute-name.html",
+        "entity.other.attribute-name.jsx",
+        "entity.other.attribute-name.tsx"
       ],
       "settings": { "foreground": "#ff8c42" }
+    },
+
+    // ✅ NEW RULE (Coverage): Rule for Markdown/Asciidoc Headings (Important for documentation)
+    {
+      "scope": ["markup.heading", "punctuation.definition.heading"],
+      "settings": {
+        "foreground": "#D4AF37",
+        "fontStyle": "bold"
+      }
     },
 
     // --- Operators and Punctuation: Faded Green ---
@@ -131,9 +180,23 @@
     }
   ],
 
+  // ===============================================
+  // 3. SEMANTIC TOKEN COLORS (For dynamic distinction)
+  // ===============================================
   "semanticTokenColors": {
-    "variable:python": "#c4d6c4",
-    "variable.readonly:python": "#9bb6b0",
+    "parameter": "#E0C97E",
+    "variable.readonly": {
+      "foreground": "#ff8c42",
+      "fontStyle": "bold"
+    },
+    "variable.readonly:python": {
+      "foreground": "#ff8c42",
+      "fontStyle": "bold"
+    },
+    "property": "#5F8E80",
+    "annotation": "#5F8E80",
+    "decorator": "#5F8E80",
+    "function.decorator": "#5F8E80",
+    "class.decorator": "#5F8E80"
   }
-
 }
